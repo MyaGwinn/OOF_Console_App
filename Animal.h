@@ -2,15 +2,15 @@
 #define ANIMAL_H
 #include "Points.h"
 
-using namespace std;
+// LO2
 class Animal :
     public Points
 {
 private: // Cannot be accessed by any other classes
-  char user_input;
+  char user_input = '0';
 
 public: // Open to all classes
-  float question1(float* pts);
+  auto question1(float* pts) -> float;
 };
 
 #endif /* ANIMAL_H */

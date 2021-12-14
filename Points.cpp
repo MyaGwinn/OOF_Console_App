@@ -3,25 +3,26 @@
 #include "Math.h"
 #include "Trivia.h"
 #include <iostream>
-using namespace std;
 
 // User selects which question to perform
-// System carrys out the selection
-float Points::menu_selection(float* pts)
+// LO1a: non-trivial methods in a cpp file
+auto Points::menu_selection(float* pts) -> float
 {
 	// Menu
-	cout << "Which question do you want to do? Enter the appropriate number:\n\n"
+	std::cout << "Which question do you want to do? Enter the appropriate number:\n\n"
 		"Animal - \n"
 		"	Question One: 1\n\n"
 		"Triva - \n"
 		"	Queston Two: 2\n\n"
 		"Math - \n"
-		"	Question Three: 3\n" << endl;
+		"	Question Three: 3\n" << std::endl;
 	
-	int menu_selection;
+	int menu_selection = 0;
 
-	cin.ignore(1000, '\n');
-	cin >> menu_selection;
+	constexpr int temp_num = 1000; // constexpr is needed to tell compiler
+																 // to allow compile-time evaluation
+	std::cin.ignore(temp_num, '\n');
+	std::cin >> menu_selection;
 
 	Animal begin_animal;
 	Trivia begin_trivia;
@@ -39,7 +40,7 @@ float Points::menu_selection(float* pts)
 		begin_math.question3(pts);
 		break;
 	default:
-		cout << "That wasn't an answer choice, am I not good enough for you?" << endl;
+		std::cout << "That wasn't an answer choice, am I not good enough for you?" << std::endl;
 		break;
 	}
 

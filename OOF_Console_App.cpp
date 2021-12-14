@@ -16,26 +16,21 @@
 #include "Points.h"
 #include "Animal.h"
 #include "Math.h"
-using namespace std;
 
 /** MILESTONES
+			LO4:
 			Compare and contrast procedural/functional appraoch and OOP:
 					Procedural programming uses the top-down approach, relying on 
 					routines to tell the computer what to do, step-by-step. While OOP
 					is more about encapusulating data and behavior into objects.
 
-			Overloading a constructor: see Math.cpp
-
-			Subclasses: Both the Math and Animal classes are derived from the 
-					Points base class and both of those sections use and modify 
-					the variable points declared in Points.h
-
+			LO2a:
 			Visiblity Inheritance Model: Within this model are three types of 
 					visiblity: public, protected, and private.
-							Public visibility means it's open to all and any class 
+							- Public visibility means it's open to all and any class 
 									can access it.
-							Protected visibility means it's open only to the derived class.
-							Private visibility means that it's not to be opened by 
+							- Protected visibility means it's open only to the derived class.
+							- Private visibility means that it's not to be opened by 
 									any other class, even derived.
 
 			Aggregates and initilizer lists: see Trivia.cpp
@@ -46,27 +41,26 @@ using namespace std;
 					inheritance refers to the reuse of implementaions.
 */
 
-int main()
+auto main() -> int
 {
 	// Intro to the program
-	cout << "Hello there, I am O.O.F, an "
+	std::cout << "Hello there, I am O.O.F, an "
 		"Originial Ostentatious Fault-finder.\n\n"
 
 		"I'm aware my name is unique, my creator ripped it off "
 		"a random acronym generator.\n\n"
 
-		"Enough about me, what's your name?\n" << endl;
+		"Enough about me, what's your name?\n" << std::endl;
 
-	string user_name;
-	cin >> user_name;
+	std::string user_name;
+	std::cin >> user_name;
 
-	cout << "\n";
-	cout << "What a stup-I mean, lovely, name. Yes, very "
-		"lovely, " << user_name << ".\n" << endl;
+	std::cout << "\n";
+	std::cout << "What a stup-I mean, lovely, name. Yes, very "
+		"lovely, " << user_name << ".\n" << std::endl;
 	
 	// Sends to Points.cpp for menu selection
 	float random = 0;
-	float* ran = &random;
 	
 	Points obj;
 	obj.menu_selection(&random);

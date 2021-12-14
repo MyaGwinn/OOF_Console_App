@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cstring>
 #include <string>
-using namespace std;
 
 /* This section displays aggregates and initilization lists
    with the format being inspired by this example from the textbook:
@@ -11,74 +10,78 @@ using namespace std;
 class Answer // "Belongs to" relationship
 {
 private:
-  string u_ans{};
+  std::string u_ans{};
 
 public:
-  Answer(const string& answer)
+  // LO1c
+  explicit Answer(const std::string& answer)
     : u_ans{ answer }
   {
   }
 
-  const string& getAnswer() const { return u_ans; }
+  auto getAnswer() noexcept -> std::string& { return u_ans; }
 };
 
 class Question // "Has a" relationship
 {
 private:
-  // This question only holds one answer, but it could hold multiple
+  // This section violates the clang-diagnostic-unused-private-field warning
+  // However, this section's purpose is to display 
+  // initilization lists and aggregates
   const Answer& u_question;  
  
 public:
-  Question(const Answer& question)
+  explicit Question(const Answer& question) noexcept
     : u_question{ question }
   {
   }
   
 };
 
-float Trivia::question2(float* pts)
+auto Trivia::question2(float* pts) -> float 
 {
-  cout << "\nWhich of the following sentences have every letter "
-    "in the alphabet?" << endl;
+  std::cout << "\nWhich of the following sentences have every letter "
+    "in the alphabet?" << std::endl;
   
-  cout << "\nA: Sphinx of black quartz, judge my vow" << endl;
-  cout << "B: Cwm ford bank glyphs vext quiz" << endl;
-  cout << "C: Pack my box with five dozen beer jugs" << endl;
-  cout << "D: Razorback-jumping frogs can level six piqued gymnasts\n" << endl;
+  std::cout << "\nA: Sphinx of black quartz, judge my vow" << std::endl;
+  std::cout << "B: Cwm ford bank glyphs vext quiz" << std::endl;
+  std::cout << "C: Pack my box with five dozen beer jugs" << std::endl;
+  std::cout << "D: Razorback-jumping frogs can level six piqued gymnasts\n" << std::endl;
 
-  cin >> user_input;
-  user_input = toupper(user_input - 32);
+  std::cin >> user_input;
+  constexpr int spacing = 32;
+  user_input = toupper(user_input - spacing);
 
-  cout << "\n";
+  std::cout << "\n";
 
   // Assigning points
   switch (user_input)
   {
   case 'A':
-    cout << "Wow, you can read?" << endl;
-    cout << "I suppose congratulations are in order as..." << endl;
-    *pts += 0.5;
+    std::cout << "Wow, you can read?" << std::endl;
+    std::cout << "I suppose congratulations are in order as..." << std::endl;
+    *pts += two_points;
     break;
   case 'B':
-    cout << "I bet you counted each letter, hehehe." << endl;
-    cout << "Sorry to say, but... " << endl;
-    *pts += 1;
+    std::cout << "I bet you counted each letter, hehehe." << std::endl;
+    std::cout << "Sorry to say, but... " << std::endl;
+    *pts += one_point;
     break;
   case 'C':
-    cout << "I should have known you had a drinking problem." << endl;
-    cout << "Sorry to say, but... " << endl;
-    *pts += 2;
+    std::cout << "I should have known you had a drinking problem." << std::endl;
+    std::cout << "Sorry to say, but... " << std::endl;
+    *pts += good_points;
     break;
   case 'D':
-    cout << "I should lower my expectations a tad more, shouldn't I?" << endl;
-    cout << "Sorry to say, but... " << endl;
-    *pts += 0.5;
+    std::cout << "I should lower my expectations a tad more, shouldn't I?" << std::endl;
+    std::cout << "Sorry to say, but... " << std::endl;
+    *pts += two_points;
     break;
   default:
-    cout << "Now, now, silly, that's not an answer, and you know that, "
-      "don't you?" << endl;
-    cout << "Sorry to say, but... " << endl;
-    *pts -= 5;
+    std::cout << "Now, now, silly, that's not an answer, and you know that, "
+      "don't you?" << std::endl;
+    std::cout << "Sorry to say, but... " << std::endl;
+    *pts -= bad_points;
     break;
   }
 
@@ -88,29 +91,28 @@ float Trivia::question2(float* pts)
   {
     // Creates a Question and uses the constructor parameter
     // to pass the answer to it
-    Question question{ ans };
+    const Question question{ ans };
 
   } // Question is now out of scope
 
-  cout << ans.getAnswer() << " is the answer!\n";
+  std::cout << ans.getAnswer() << " is the answer!\n";
 
-  cout << "\n\nWant another question?" << endl;
-  cin >> user_input;
-  user_input = toupper(user_input - 32);
+  std::cout << "\n\nWant another question?" << std::endl;
+  std::cin >> user_input;
+  user_input = toupper(user_input - spacing);
 
-  if (user_input == 'YES' || user_input == 'Y')
+  if (user_input == 'Y')
   {
-    Points obj;
-    obj.menu_selection(pts);
+    Points::menu_selection(pts);
   }
-  else if (user_input == 'NO' || user_input == 'N')
+  else if (user_input == 'N')
   {
-    cout << "\nThat's a shame. SIKE!" << endl;
-    cout << "Your total points are: " << *pts << endl;
+    std::cout << "\nThat's a shame. SIKE!" << std::endl;
+    std::cout << "Your total points are: " << *pts << std::endl;
   }
   else {
-    cout << "\nThe disrespect... is blatant." << endl;
+    std::cout << "\nThe disrespect... is blatant." << std::endl;
   }
   
-  return 0;
+  return points;
 } // end Trivia::question2
