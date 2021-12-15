@@ -31,6 +31,9 @@ Updated to Milestone 3 on 12/14/2021:
 - Standardized point system
 - Decreased warnings to 13
 
+### Error List from Code Analysis
+![Code Analysis](https://user-images.githubusercontent.com/62121470/146127371-6ce8506a-ee56-4bf1-a1d0-a2cd3498aabc.PNG)
+
 ### Key Programming Concepts Utilized
 - Basics of implementing a class and header file
 - Overloading constructors
