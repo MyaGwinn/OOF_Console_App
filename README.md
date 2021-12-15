@@ -18,6 +18,9 @@ If you have any suggestions relevant to making OOF a better console game, please
 ### Author
 - Mya Gwinn
 
+### License
+GNU General Public License v3.0
+
 ### Acknowledgments
 - LearnCPP, Geeks for Geeks, W3Schools, and, of course, Stack Overflow.
 - Professor Vanselow (COP 3003)
