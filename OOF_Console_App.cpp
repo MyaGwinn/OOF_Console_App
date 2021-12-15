@@ -35,7 +35,7 @@ auto main() -> int
 {
 	// Intro to the program
 	std::cout << "Hello there, I am O.O.F, an "
-		"Originial Ostentatious Fault-finder.\n\n"
+		"Original Ostentatious Fault-finder.\n\n"
 
 		"I'm aware my name is unique, my creator ripped it off "
 		"a random acronym generator.\n\n"

@@ -17,7 +17,7 @@
 auto Points::menu_selection(float* pts) -> float
 {
 	// Menu
-	std::cout << "Which question do you want to do?" <<
+	std::cout << "\nWhich question do you want to do?" <<
 		" Enter the appropriate number:\n\n"
 		"Animal - \n"
 		"	Question One: 1\n\n"
