@@ -3,19 +3,27 @@
 #include <iostream>
 #include <string>
 
-// LO1 & LO1a: at least one class in a header file
+/**@file Points.h
+ * @brief Points is the base class for Trivia, Math, and Animal.
+ * and it declares the point system.
+ *
+ * LO1 & LO1a
+ * 
+ * @author Mya Gwinn
+ * @bugs No known bugs
+*/
 class Points
 {
 private:
-	 // WARN: has tried before, may not work?
+	// LO6 & LO3
 	float* pts = &points;
 
 protected: // Only open to derived classes
 	float points = 0;
 	const float one_point = 1.0;
 	const float two_points = 2.0;
-	const float bad_points = 5.0; // indicates worse answer choice
-	const float good_points = 5.0; // best answer choice
+	const float bad_points = 5.0; // Indicates worse answer choice
+	const float good_points = 5.0; // Best answer choice
 
 public: // Open to all classes
 	static auto menu_selection(float* pts) -> float;

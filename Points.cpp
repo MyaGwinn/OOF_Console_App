@@ -4,19 +4,28 @@
 #include "Trivia.h"
 #include <iostream>
 
-// User selects which question to perform
-// LO1a: non-trivial methods in a cpp file
+/**@file Points.cpp
+ * @brief User selects which question to perform (LO1a).
+ *
+ * @param pts (if the user is coming from another question,
+ * points will carry over).
+ * @return points (carries points over to next question, if needed).
+ *
+ * @author Mya Gwinn
+ * @bugs No known bugs
+*/
 auto Points::menu_selection(float* pts) -> float
 {
 	// Menu
-	std::cout << "Which question do you want to do? Enter the appropriate number:\n\n"
+	std::cout << "Which question do you want to do?" <<
+		" Enter the appropriate number:\n\n"
 		"Animal - \n"
 		"	Question One: 1\n\n"
 		"Triva - \n"
 		"	Queston Two: 2\n\n"
 		"Math - \n"
 		"	Question Three: 3\n" << std::endl;
-	
+
 	int menu_selection = 0;
 
 	constexpr int temp_num = 1000; // constexpr is needed to tell compiler
@@ -40,7 +49,8 @@ auto Points::menu_selection(float* pts) -> float
 		begin_math.question3(pts);
 		break;
 	default:
-		std::cout << "That wasn't an answer choice, am I not good enough for you?" << std::endl;
+		std::cout << "That wasn't an answer choice, am I not good enough for you?"
+			<< std::endl;
 		break;
 	}
 
